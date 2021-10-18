@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_tutorial/Controller/counter_controller.dart';
-
 
 class CounterPage extends StatelessWidget {
   final c = Get.find<CounterController>();
@@ -15,11 +13,11 @@ class CounterPage extends StatelessWidget {
       body: Container(
         child: Center(
             child: Obx(
-                  () => Text(
-                'Angka ${c.counter.value}',
-                style: TextStyle(fontSize: 50),
-              ),
-            )),
+          () => Text(
+            'Angka ${c.counter.value.angka}',
+            style: TextStyle(fontSize: 50),
+          ),
+        )),
       ),
       floatingActionButton: Container(
         margin: EdgeInsets.only(left: 30),
@@ -29,12 +27,13 @@ class CounterPage extends StatelessWidget {
               child: Icon(Icons.add),
               onPressed: () => c.increament(),
             ),
-            SizedBox(width: 20,),
+            SizedBox(
+              width: 20,
+            ),
             FloatingActionButton(
               child: Icon(Icons.remove),
               onPressed: () => c.decreament(),
             ),
-
           ],
         ),
       ),
