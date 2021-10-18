@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_tutorial/Page/Counter.dart';
+import 'package:getx_tutorial/Page/CounterGetX.dart';
+import 'package:getx_tutorial/Page/CounterGetXBuilder.dart';
+import 'package:getx_tutorial/Page/CounterObx.dart';
 
 import 'Controller/counter_controller.dart';
 
@@ -30,12 +32,39 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: Text("Getx Tutorial"),
       ),
-      body: Column(
-        children: [
-          RaisedButton(
-              child: Text("Simple Counter Getx"),
-              onPressed: () => Get.to(CounterPage()))
-        ],
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: RaisedButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "Counter Getx With Obx",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => Get.to(CounterObxPage())),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: RaisedButton(
+                color: Colors.red,
+                  child: Text("Counter Getx With Getx",
+                    style: TextStyle(color: Colors.white),),
+                  onPressed: () => Get.to(CounterGetXPage())),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: RaisedButton(
+                color: Colors.green,
+                  child: Text("Counter Getx With GetBuilder",
+                    style: TextStyle(color: Colors.white),),
+                  onPressed: () => Get.to(CounterGetXBuilderPage())),
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.lightbulb_outline),
